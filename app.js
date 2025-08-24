@@ -29,13 +29,12 @@ app.set("view engine","ejs");     //to set view engine as ejs
 app.set("views",path.join(__dirname,"views"));  //to set views folder for ejs temp or dynamic files
 app.engine("ejs",ejsMate);
 
-const MONGO_URL = process.env.Mongo_URL || "monmongodb://127.0.0.1:27017/wanderlust";    //Our database URL
+const MONGO_URL = process.env.Mongo_URL || "mongodb://127.0.0.1:27017/wanderlust";    //Our database URL
 
 main().catch((err)=>{console.log(err)});  
 
 async function main(){
     await mongoose.connect(MONGO_URL).then((res) => console.log("connected"));     //to Connect With dataBase
-
 };
 
 const sessionOptions = {
@@ -68,6 +67,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
     next();
 })
 
