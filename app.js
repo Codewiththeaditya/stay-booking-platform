@@ -29,7 +29,7 @@ app.set("view engine","ejs");     //to set view engine as ejs
 app.set("views",path.join(__dirname,"views"));  //to set views folder for ejs temp or dynamic files
 app.engine("ejs",ejsMate);
 
-const MONGO_URL = process.env.Mongo_URL || "mongodb://127.0.0.1:27017/wanderlust";    //Our database URL
+const MONGO_URL = process.env.Mongo_URL ;//|| "mongodb://127.0.0.1:27017/wanderlust";    //Our database URL
 
 main().catch((err)=>{console.log(err)});  
 
