@@ -34,7 +34,7 @@ const MONGO_URL = process.env.Mongo_URL ;//|| "mongodb://127.0.0.1:27017/wanderl
 main().catch((err)=>{console.log(err)});  
 
 async function main(){
-    await mongoose.connect(MONGO_URL).then((res) => console.log("connected"));     //to Connect With dataBase
+    await mongoose.connect("mongodb+srv://Therealaditya:sonata%40mongodb@cluster0.atjx2p5.mongodb.net/wanderlust?retryWrites=true&w=majority&appName=Cluster0").then((res) => console.log("connected"));     //to Connect With dataBase
 };
 
 const sessionOptions = {
